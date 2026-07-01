@@ -377,31 +377,6 @@ h3 {
 
 .about-copy h2 { margin-bottom: 8px; }
 
-/* ============================================================
-   photography
-   ============================================================ */
-
-/* FULL BACKGROUND SECTION */
-.photo-hero{
-    position:relative;
-    min-height:100vh;
-
-    background-image:url("images/bg-photo.jpg");
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-    align-items:center;
-}
-
-/* RED CINEMATIC OVERLAY */
-.photo-overlay{
-    position:absolute;
-    inset:0;
-    background-color: #2c0101;
-    
-}
-
 /* CONTENT ON TOP */
 .photo-content{
     position:relative;
