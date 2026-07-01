@@ -12,17 +12,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
-/*hamberger*/
-  const toggle = document.getElementById("nav-toggle");
-  const nav = document.getElementById("nav-links");
+// Mobile nav toggle
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
 
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('active');
+  navLinks.classList.toggle('active');
+  document.body.classList.toggle('no-scroll'); // prevents background scroll when menu is open
+});
+
+// Close menu when a link is clicked (good for single-page nav)
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    document.body.classList.remove('no-scroll');
   });
+});
 
 /* ACTIVE NAV LINK ON SCROLL */
 const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+const navAnchorLinks = document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", () => {
   let current = "";
@@ -36,7 +47,7 @@ window.addEventListener("scroll", () => {
     }
   });
 
-  navLinks.forEach(link => {
+  navAnchorLinks.forEach(link => {
     link.classList.remove("active");
     if (link.getAttribute("href") === `#${current}`) {
       link.classList.add("active");
